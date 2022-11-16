@@ -1,0 +1,1 @@
+cat ip-ranges.json | jq '.prefixes'  | jq 'map(select(.region=="us-west-1"))' | jq 'map(select(.service=="AMAZON"))' | jq  'map(.ip_prefix)' | tr -d '"' | tr -d "," | tr -d "]" | tr -d "["
